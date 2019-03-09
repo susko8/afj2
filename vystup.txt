@@ -1,0 +1,18 @@
+vysledok NKA: 
+index: q1,  is_initial: True, is_accepting: False
+index: q1,  is_initial: True, is_accepting: True
+index: q2,  is_initial: False, is_accepting: False
+index: q3,  is_initial: False, is_accepting: False
+index: q4,  is_initial: False, is_accepting: False
+index: q5,  is_initial: False, is_accepting: False
+index: q6,  is_initial: False, is_accepting: False
+index: q7,  is_initial: False, is_accepting: False
+index: q8,  is_initial: False, is_accepting: False
+index: q9,  is_initial: False, is_accepting: False
+index: q10,  is_initial: False, is_accepting: False
+index: q11,  is_initial: False, is_accepting: False
+index: q12,  is_initial: False, is_accepting: False
+index: q13,  is_initial: False, is_accepting: False
+index: q14,  is_initial: False, is_accepting: True
+index: q15,  is_initial: False, is_accepting: False
+index: q16,  is_initial: False, is_accepting: True
