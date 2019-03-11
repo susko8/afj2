@@ -1,8 +1,8 @@
-def get_state(states, name):
-    for i in range(0, len(states)):
-        if states[i].index == name:
-            return states[i]
+def find_starting_state(automata):
+    for index, state in automata.states.items():
+        if state.is_initial:
+            return state
 
 
-def epsilon_clsr(clsr_arg):
-    return len(clsr_arg)
+def epsilon_clsr(state, edge):
+    return 0

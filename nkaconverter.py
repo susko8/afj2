@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import pandas as pd
 import freader as fr
 import functions as fns
 from nka_state import NKAState
@@ -43,10 +44,10 @@ for i in range(2 + number_of_states + number_of_input_alphabet_symbols, len(file
     nkastates[parsed_edge[0]].edges[parsed_edge[1]].append(parsed_edge[2])
 
 nka = NKAutomata(nkastates, symbols)
-print(nkastates['q0'])
-# print(fns.get_state(nka.states, 'q1'))
 
-# TODO bude treba mapu na jednotlive vrcholy ? pevne verim ze nie funkcia get_states to zarucuje
+fns.find_starting_state(nka)
+
+
 
 
 # zapis vysledku
