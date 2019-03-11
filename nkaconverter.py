@@ -47,8 +47,16 @@ nka = NKAutomata(nkastates, symbols)
 
 fns.find_starting_state(nka)
 
+closure_table = pd.DataFrame(columns=nka.symbols)
 
+# TODO uzaver na starting state
 
+# alokuj
+closure_table.loc[fns.find_starting_state(nka)] = 0
 
+# pristup cez indexy
+closure_table.at[fns.find_starting_state(nka), symbols[0]] = 1
+
+print(closure_table)
 # zapis vysledku
 # fr.write_result_to_file(nka.__repr__())
