@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 class NKAState:
     def __init__(self, index):
         self.index = index
@@ -11,5 +12,12 @@ class NKAState:
         self.edges[symbol] = to_edge_index
 
     def __repr__(self):
-        return 'index: ' + self.index + ',  is_initial: ' + str(self.is_initial)\
-               + ', is_accepting: ' + str(self.is_accepting) + '\nedges: ' + str(self.edges)
+        # return '\nindex: ' + self.index + ',  is_initial: ' + str(self.is_initial) \
+        #        + ', is_accepting: ' + str(self.is_accepting) + '\nedges: ' + str(self.edges)
+        return self.index
+
+    def __eq__(self, other):
+        return self.index == other.index
+
+    def __hash__(self):
+        return id(self)
