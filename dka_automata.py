@@ -4,9 +4,10 @@ class DKAutomata:
         self.symbols = symbols
 
     def __repr__(self):
-        s = 'NKA: \n'
+        s = 'DKA: \n'
         for i in self.states:
-            s += i.__repr__() + '\n'
+            for sy in self.symbols:
+                s += i.__repr__() + ' edge ' + sy + ' to ' + i.edges[sy].__repr__() + '\n'
         return s
 
     def validate_string(self):
