@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-import pandas as pd
 import freader as fr
 import functions as fns
-import numpy as np
 from nka_state import NKAState
 from nka_automata import NKAutomata
+from dka_state import DKAState
+from dka_automata import DKAutomata
 
 filecontent = fr.read_file()
 
@@ -44,57 +44,67 @@ for i in range(2 + number_of_states + number_of_input_alphabet_symbols, len(file
     parsed_edge = filecontent[i].split(',')
     nkastates[parsed_edge[0]].edges[parsed_edge[1]].append(parsed_edge[2])
 
+# vytvorenie instancie NKA automatu
 nka = NKAutomata(nkastates, symbols)
 
 dka_table = [[] for j in range(len(symbols))]
 
-dka_states_array = []
+nka_to_dka_states_array = []
 
 # test = fns.epsilon_clsr(nka, [nka.states['q0'], nka.states['q1']], 'a')
 first_index = fns.epsilon_clsr(nka, [fns.find_starting_state(nka)], '')
+print('initial_dka_state', first_index)
+nka_to_dka_states_array.append(first_index)
 
-
-dka_states_array.append(first_index)
-
-print('initial_dka_state',first_index)
-# foo = fns.epsilon_clsr(nka, [fns.find_starting_state(nka)], 'b')
 n_of_validated_rows = 0
-
+# vygenerovanie tabulky pre generovanie DKA automatu
 while True:
     flag = False
     to_append = []
     for i in range(len(symbols)):
-        state = fns.epsilon_clsr(nka, dka_states_array[len(dka_states_array) - 1], symbols[i])
+        state = fns.epsilon_clsr(nka, nka_to_dka_states_array[len(nka_to_dka_states_array) - 1], symbols[i])
         dka_table[i].append(state)
         to_append.append(state)
     for state in to_append:
-        if state in dka_states_array or not state:
+        if state in nka_to_dka_states_array or not state:
             flag = True
         else:
-            dka_states_array.append(state)
+            nka_to_dka_states_array.append(state)
             flag = False
     n_of_validated_rows += 1
-    if flag and n_of_validated_rows == len(dka_states_array):
+    if flag and n_of_validated_rows == len(nka_to_dka_states_array):
         break
 
-# noinspection PyUnreachableCode
-print('list',dka_states_array)
-print('table',dka_table)
+print('nka to dka list', nka_to_dka_states_array)
+print('nka to dka table', dka_table)
 
-# print(fns.epsilon_clsr(nka, [fns.find_starting_state(nka)], ''))
+# vytvorenie zoznamu stavov vysledneho DKA
+dka_automata_states = fns.init_dka_states(nka_to_dka_states_array)
+
+print('dka_automata_states', dka_automata_states)
+
+# konverzia prvkov v dka_tabulke na DKA stavy
+dka_table = fns.convert_dka_table_states(dka_table)
+
+print('converted_dka_table', dka_table)
+
+row_in_table = 0
+for states in dka_automata_states:
+    index_of_symbol = 0
+    for symbol in symbols:
+        states.edges[symbol].append(dka_table[index_of_symbol][row_in_table])
+        index_of_symbol += 1
+    row_in_table += 1
+
+# TODO pasce
+for states in dka_automata_states:
+    print(states)
+    print('a edges to', states.edges['a'])
+    print('b edges to', states.edges['b'])
+
+# check if podmienka funguje
+# if dka_automata_states[1] == dka_table[0][0]:
+#     print('hoooopaaa')
+
 # zapis vysledku
 # fr.write_result_to_file(nka.__repr__())
-
-
-# zatial nepotrebny kod
-
-# closure_table = pd.DataFrame(columns=nka.symbols)
-# closure_table.loc[fns.epsilon_clsr(nka, [fns.find_starting_state(nka)], '')] = 0
-# closure_table.loc[first_index] = 0
-# closure_table.loc[nka.states['q1']] = 1
-# closure_table.at[[fns.find_starting_state(nka)], 'a'] = 1
-# row_indexes = closure_table.index
-# print(row_indexes)
-
-# print(closure_table)
-#
