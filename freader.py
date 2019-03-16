@@ -10,7 +10,7 @@ def read_file():
     #     sys.exit()
     #
     # filename = str(sys.argv[1])
-    file = open('vstup4.txt', 'r')
+    file = open('vstup5.txt', 'r')
     filecontent = file.read().splitlines()
     file.close()
     return filecontent

@@ -55,7 +55,7 @@ dka_table = [[] for j in range(len(symbols))]
 #                         'b')
 # print('!!!!!!!!!!!!!!!', test)
 first_index = fns.epsilon_clsr(nka, [fns.find_starting_state(nka)], '')
-print('initial_dka_state', first_index)
+print('\ninitial_dka_state\n', first_index)
 # nka_to_dka_states_array.append(first_index)
 
 # hladania vsetkych moznych stavov cez closure
@@ -69,19 +69,19 @@ for states in nka_to_dka_states_array:
         symbol_col += 1
     symbol_col = 0
 
-print('nka to dka table', dka_table)
+print('\nnka to dka table\n', dka_table)
 
 # konverzia prvkov v dka_tabulke na DKA stavy
 dka_table = fns.convert_dka_table_states(dka_table)
 
 # vytvorenie zoznamu stavov vysledneho DKA
 dka_automata_states = fns.init_dka_states(nka_to_dka_states_array)
-print('dka_automata_states', dka_automata_states)
+print('\ndka_automata_states\n', dka_automata_states)
 
 # inicializacia pasci do prazdnych prvkov
 fns.init_trap_states(dka_table, dka_automata_states, len(symbols))
 
-print('converted_dka_table with traps', dka_table)
+print('\nconverted_dka_table with traps\n', dka_table)
 
 # precitanie tabulky do novych stavov pre dka automat
 row_in_table = 0
@@ -97,11 +97,7 @@ dka = DKAutomata(dka_automata_states, symbols)
 print(dka)
 # Testovaci kod
 
-# testovaci vypis
-# for states in dka_automata_states:
-#     print(states)
-#     print('a edges to', states.edges['a'])
-#     print('b edges to', states.edges['b'])
+
 
 
 # zapis vysledku
