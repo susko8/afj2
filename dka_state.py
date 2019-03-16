@@ -14,9 +14,9 @@ class DKAState:
     def __repr__(self):
         to_string = ''
         for state in self.states:
-            to_string += state.index + " "
-        to_string += " initial " if self.are_initial else ""
-        to_string += " accepting " if self.are_accepting else " not accepting "
+            to_string += state.index + ""
+        to_string += " I" if self.are_initial else " "
+        to_string += "F" if self.are_accepting else ""
         return to_string
 
     def __eq__(self, other):

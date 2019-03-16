@@ -20,5 +20,5 @@ def write_result_to_file(result):
     # zapis vystupu
     filename = str(sys.argv[2])
     file = open(filename, 'w')
-    file.write('vysledok ' + result)
+    file.write(result)
     file.close()

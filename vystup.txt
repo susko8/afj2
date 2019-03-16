@@ -1,18 +1,18 @@
-vysledok NKA: 
-index: q1,  is_initial: True, is_accepting: False
-index: q1,  is_initial: True, is_accepting: True
-index: q2,  is_initial: False, is_accepting: False
-index: q3,  is_initial: False, is_accepting: False
-index: q4,  is_initial: False, is_accepting: False
-index: q5,  is_initial: False, is_accepting: False
-index: q6,  is_initial: False, is_accepting: False
-index: q7,  is_initial: False, is_accepting: False
-index: q8,  is_initial: False, is_accepting: False
-index: q9,  is_initial: False, is_accepting: False
-index: q10,  is_initial: False, is_accepting: False
-index: q11,  is_initial: False, is_accepting: False
-index: q12,  is_initial: False, is_accepting: False
-index: q13,  is_initial: False, is_accepting: False
-index: q14,  is_initial: False, is_accepting: True
-index: q15,  is_initial: False, is_accepting: False
-index: q16,  is_initial: False, is_accepting: True
+4
+2
+q0qf IF
+q1q2 F
+q_pasca 
+qf F
+a
+b
+a
+b
+q0qf,a,q1q2 
+q0qf,b,q_pasca 
+q1q2,a,q1q2 
+q1q2,b,qf 
+q_pasca,a,q_pasca 
+q_pasca,b,q_pasca 
+qf,a,q_pasca 
+qf,b,q_pasca 

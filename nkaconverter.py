@@ -93,13 +93,14 @@ for states in dka_automata_states:
     row_in_table += 1
 
 dka = DKAutomata(dka_automata_states, symbols)
-#
+
 print(dka)
+
+# zapis vysledku
+fr.write_result_to_file(dka.file_repr())
 
 # Testovanie DKA
 print('Zadajte vstup pre jeho validaciu DKA automatom:')
 x = input()
 print(dka.validate_input(x))
 
-# zapis vysledku
-# fr.write_result_to_file(nka.__repr__())

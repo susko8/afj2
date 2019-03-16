@@ -59,7 +59,7 @@ def convert_dka_table_states(table):
 
 
 def init_trap_states(table, dka_states, symlen):
-    trap_state = DKAState([NKAState('qpasca')])
+    trap_state = DKAState([NKAState('q_pasca')])
     flag = False
     for i in range(len(dka_states)):
         if not dka_states[i].states:

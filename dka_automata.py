@@ -10,6 +10,24 @@ class DKAutomata:
                 s += i.__repr__() + ' edge ' + sy + ' to ' + i.edges[sy].__repr__() + '\n'
         return s
 
+    def file_repr(self):
+        result_string = str(len(self.states)) + '\n'
+        result_string += str(len(self.symbols)) + '\n'
+        for sts in self.states:
+            result_string += str(sts) + '\n'
+        for symbol in self.symbols:
+            result_string += str(symbol) + '\n'
+        for symbol in self.symbols:
+            result_string += str(symbol) + '\n'
+        for states in self.states:
+            for s in self.symbols:
+                result_string += str(states).replace('[', '').replace(']',
+                                                                      '').replace(
+                    'F', '').replace('I', '').replace(' ','') + ',' + s + ',' + str(states.edges[s]).replace('[', '').replace(']',
+                                                                                                              '').replace(
+                    'F', '').replace('I', '') + '\n'
+        return result_string
+
     def validate_input(self, input_str):
         for c in input_str:
             if c not in self.symbols:
