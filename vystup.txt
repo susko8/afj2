@@ -1,18 +1,29 @@
-4
-2
-q0qf IF
-q1q2 F
+6
+3
+q0q1q3 I
+q4q5q6q7q8 F
 q_pasca 
-qf F
+q1q2q3 
+q6q7q8q9 F
+q10q6q7q8 F
 a
 b
-a
-b
-q0qf,a,q1q2 
-q0qf,b,q_pasca 
-q1q2,a,q1q2 
-q1q2,b,qf 
+c
+q0q1q3,a,q4q5q6q7q8 
+q0q1q3,b,q_pasca 
+q0q1q3,c,q1q2q3 
+q4q5q6q7q8,a,q_pasca 
+q4q5q6q7q8,b,q6q7q8q9 
+q4q5q6q7q8,c,q10q6q7q8 
 q_pasca,a,q_pasca 
 q_pasca,b,q_pasca 
-qf,a,q_pasca 
-qf,b,q_pasca 
+q_pasca,c,q_pasca 
+q1q2q3,a,q4q5q6q7q8 
+q1q2q3,b,q_pasca 
+q1q2q3,c,q1q2q3 
+q6q7q8q9,a,q_pasca 
+q6q7q8q9,b,q6q7q8q9 
+q6q7q8q9,c,q10q6q7q8 
+q10q6q7q8,a,q_pasca 
+q10q6q7q8,b,q6q7q8q9 
+q10q6q7q8,c,q10q6q7q8 

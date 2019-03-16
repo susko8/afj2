@@ -17,8 +17,6 @@ class DKAutomata:
             result_string += str(sts) + '\n'
         for symbol in self.symbols:
             result_string += str(symbol) + '\n'
-        for symbol in self.symbols:
-            result_string += str(symbol) + '\n'
         for states in self.states:
             for s in self.symbols:
                 result_string += str(states).replace('[', '').replace(']',

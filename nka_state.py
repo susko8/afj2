@@ -14,7 +14,7 @@ class NKAState:
     def __repr__(self):
         # return '\nindex: ' + self.index + ',  is_initial: ' + str(self.is_initial) \
         #        + ', is_accepting: ' + str(self.is_accepting) + '\nedges: ' + str(self.edges)
-        return self.index
+        return self.index + str(self.is_initial) + str(self.is_accepting)
 
     def __eq__(self, other):
         return self.index == other.index

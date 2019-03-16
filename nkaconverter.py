@@ -28,7 +28,7 @@ for i in range(2, 2 + number_of_states):
             s = NKAState(parsed_state[0])
             s.is_accepting = True
             nkastates[parsed_state[0]] = s
-        else:
+        if parsed_state[1] == 'IF':
             s = NKAState(parsed_state[0])
             s.is_accepting = True
             s.is_initial = True
@@ -43,6 +43,7 @@ for i in range(2 + number_of_states, 2 + number_of_states + number_of_input_alph
 for i in range(2 + number_of_states + number_of_input_alphabet_symbols, len(filecontent)):
     parsed_edge = filecontent[i].split(',')
     nkastates[parsed_edge[0]].edges[parsed_edge[1]].append(parsed_edge[2])
+
 
 # vytvorenie instancie NKA automatu
 nka = NKAutomata(nkastates, symbols)
