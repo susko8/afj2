@@ -10,5 +10,25 @@ class DKAutomata:
                 s += i.__repr__() + ' edge ' + sy + ' to ' + i.edges[sy].__repr__() + '\n'
         return s
 
-    def validate_string(self):
-        return 0
+    def validate_input(self, input_str):
+        for c in input_str:
+            if c not in self.symbols:
+                return 'Vstup "' + input_str + '" obsahuje nepovolene znaky, automat ho NEAKCEPTUJE'
+        final_sts = self.initial_state()
+        for c in input_str:
+            final_sts = final_sts.edges[c]
+            final_sts = self.get_state_from_arr(final_sts)
+        if final_sts.are_accepting:
+            return 'Vstup "' + input_str + '" AKCEPTOVANY'
+        else:
+            return 'Vstup "' + input_str + '" NEAKCEPTOVANY'
+
+    def initial_state(self):
+        for states in self.states:
+            if states.are_initial:
+                return states
+
+    def get_state_from_arr(self, arr):
+        for states in self.states:
+            if [states] == arr:
+                return states

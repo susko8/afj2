@@ -49,11 +49,11 @@ nka = NKAutomata(nkastates, symbols)
 
 dka_table = [[] for j in range(len(symbols))]
 
-# nka_to_dka_states_array = []
-
+# testovanie clsr funkcie
 # test = fns.epsilon_clsr(nka, [nka.states['q4'], nka.states['q5'], nka.states['q6'], nka.states['q7'], nka.states['q8']],
 #                         'b')
 # print('!!!!!!!!!!!!!!!', test)
+
 first_index = fns.epsilon_clsr(nka, [fns.find_starting_state(nka)], '')
 print('\ninitial_dka_state\n', first_index)
 # nka_to_dka_states_array.append(first_index)
@@ -95,10 +95,11 @@ for states in dka_automata_states:
 dka = DKAutomata(dka_automata_states, symbols)
 #
 print(dka)
-# Testovaci kod
 
-
-
+# Testovanie DKA
+print('Zadajte vstup pre jeho validaciu DKA automatom:')
+x = input()
+print(dka.validate_input(x))
 
 # zapis vysledku
 # fr.write_result_to_file(nka.__repr__())
