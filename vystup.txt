@@ -1,29 +1,37 @@
-6
+8
 3
-q0q1q3 I
-q4q5q6q7q8 F
+q1q12q2q3q7q8 I
 q_pasca 
-q1q2q3 
-q6q7q8q9 F
-q10q6q7q8 F
+q13q14q15q16q4q5 F
+q10q9 
+q12q3q6 
+q15q16 F
+q11q12q8 
+q13q14q15q16 F
 a
 b
 c
-q0q1q3,a,q4q5q6q7q8 
-q0q1q3,b,q_pasca 
-q0q1q3,c,q1q2q3 
-q4q5q6q7q8,a,q_pasca 
-q4q5q6q7q8,b,q6q7q8q9 
-q4q5q6q7q8,c,q10q6q7q8 
+q1q12q2q3q7q8,a,q_pasca 
+q1q12q2q3q7q8,b,q13q14q15q16q4q5 
+q1q12q2q3q7q8,c,q10q9 
 q_pasca,a,q_pasca 
 q_pasca,b,q_pasca 
 q_pasca,c,q_pasca 
-q1q2q3,a,q4q5q6q7q8 
-q1q2q3,b,q_pasca 
-q1q2q3,c,q1q2q3 
-q6q7q8q9,a,q_pasca 
-q6q7q8q9,b,q6q7q8q9 
-q6q7q8q9,c,q10q6q7q8 
-q10q6q7q8,a,q_pasca 
-q10q6q7q8,b,q6q7q8q9 
-q10q6q7q8,c,q10q6q7q8 
+q13q14q15q16q4q5,a,q12q3q6 
+q13q14q15q16q4q5,b,q15q16 
+q13q14q15q16q4q5,c,q_pasca 
+q10q9,a,q11q12q8 
+q10q9,b,q_pasca 
+q10q9,c,q_pasca 
+q12q3q6,a,q_pasca 
+q12q3q6,b,q13q14q15q16q4q5 
+q12q3q6,c,q_pasca 
+q15q16,a,q_pasca 
+q15q16,b,q15q16 
+q15q16,c,q_pasca 
+q11q12q8,a,q_pasca 
+q11q12q8,b,q13q14q15q16 
+q11q12q8,c,q10q9 
+q13q14q15q16,a,q_pasca 
+q13q14q15q16,b,q15q16 
+q13q14q15q16,c,q_pasca 
