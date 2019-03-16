@@ -58,15 +58,39 @@ def convert_dka_table_states(table):
     return table
 
 
-def init_trap_states(table, dka_states,symlen):
-    flag = False
+def init_trap_states(table, dka_states, symlen):
     trap_state = DKAState([NKAState('qpasca')])
-    for x in range(len(table)):
-        for y in range(len(table[0])):
-            if not table[x][y].states:
-                table[x][y] = trap_state
-                flag = True
+    flag = False
+    for i in range(len(dka_states)):
+        if not dka_states[i].states:
+            dka_states[i] = trap_state
+            flag = True
     if flag:
-        dka_states.append(trap_state)
-        for i in range(symlen):
-            table[i].append(trap_state)
+        for x in range(len(table)):
+            for y in range(len(table[0])):
+                if not table[x][y].states:
+                    table[x][y] = trap_state
+                    flag = True
+
+
+def fill_nka_to_dka_states(first_state, automata, symbols):
+    result = [first_state]
+    if not find_new_states(result, automata, symbols):
+        return result
+    else:
+        find_new_states(result, automata, symbols)
+
+
+def find_new_states(states_array, automata, symbols):
+    found = False
+    for states in states_array:
+        for symbol in symbols:
+            new_state = epsilon_clsr(automata, states, symbol)
+            if new_state in states_array:
+                found = False
+            else:
+                found = True
+                states_array.append(new_state)
+    if found:
+        return True
+    return False
